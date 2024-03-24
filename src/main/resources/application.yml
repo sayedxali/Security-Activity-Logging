@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Logging_Logback_JWTSecurityAuditing
+
+api:
+  endpoint:
+    base-url: /api/v1
