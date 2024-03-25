@@ -1,0 +1,9 @@
+### User-Admin
+GET {{homeUrl}}/{{baseUrl}}/authorize/user-admin
+Authorization: Bearer {{authToken}}
+
+
+### Admin
+GET {{homeUrl}}/{{baseUrl}}/authorize/admin
+Authorization: Bearer {{authToken}}
+

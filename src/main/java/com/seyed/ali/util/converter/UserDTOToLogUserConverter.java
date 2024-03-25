@@ -10,12 +10,11 @@ public class UserDTOToLogUserConverter implements Converter<UserDTO, LogUser> {
 
     @Override
     public LogUser convert(UserDTO source) {
-        return LogUser.builder()
-                .userId(source.userId())
-                .username(source.username())
-                .roles(source.roles())
-                .enabled(source.enabled())
-                .build();
+        LogUser logUser = new LogUser();
+        logUser.setUsername(source.username());
+        logUser.setEnabled(source.enabled());
+        logUser.setRoles(source.roles());
+        return logUser;
     }
 
 }

@@ -5,3 +5,22 @@ spring:
 api:
   endpoint:
     base-url: /api/v1
+
+--- # h2
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+  #    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+
+--- # logging
+logging:
+  level:
+    com.seyed.ali.controller: debug

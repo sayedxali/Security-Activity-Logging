@@ -1,0 +1,21 @@
+### Login
+POST {{homeUrl}}/{{baseUrl}}/auth/login
+Authorization: Basic user user
+
+
+### Register
+POST {{homeUrl}}/{{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "userId": "3",
+  "username": "demo",
+  "password": "demo",
+  "roles": "user admin moderator",
+  "enabled": true
+}
+
+
+### Login 2
+POST {{homeUrl}}/{{baseUrl}}/auth/login
+Authorization: Basic admin5 admin
