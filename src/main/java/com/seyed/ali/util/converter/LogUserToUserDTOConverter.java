@@ -10,8 +10,9 @@ public class LogUserToUserDTOConverter implements Converter<LogUser, UserDTO> {
 
     @Override
     public UserDTO convert(LogUser source) {
+        // We are not setting the password in DTO.
         return new UserDTO(
-                source.getUserId(),
+                source.getId(),
                 source.getUsername(),
                 source.getRoles(),
                 source.isEnabled()

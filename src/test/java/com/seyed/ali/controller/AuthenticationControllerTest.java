@@ -3,7 +3,7 @@ package com.seyed.ali.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seyed.ali.model.dto.UserDTO;
 import com.seyed.ali.model.entity.LogUser;
-import com.seyed.ali.service.AuthenticationService;
+import com.seyed.ali.service.interfaces.AuthenticationService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -54,7 +54,7 @@ class AuthenticationControllerTest {
         given(this.authenticationService.registerUser(Mockito.any(LogUser.class)))
                 .willReturn(userDTO);
 
-        LogUser logUser = new LogUser("1", "user", "user", "USER", false, Instant.now());
+        LogUser logUser = new LogUser("1", "user", "user", false, "USER", Instant.now());
         String json = this.objectMapper.writeValueAsString(logUser);
 
         // When (Act) - Call the method you're testing.
@@ -86,7 +86,7 @@ class AuthenticationControllerTest {
         given(this.authenticationService.registerUser(Mockito.any(LogUser.class)))
                 .willReturn(userDTO);
 
-        LogUser logUser = new LogUser("1", "", "", "", false, Instant.now());
+        LogUser logUser = new LogUser("1", "", "", false, "", Instant.now());
         String json = this.objectMapper.writeValueAsString(logUser);
 
         // When (Act) - Call the method you're testing.
@@ -103,9 +103,9 @@ class AuthenticationControllerTest {
                 .andExpect(jsonPath("$.flag", is(false)))
                 .andExpect(jsonPath("$.code", is(BAD_REQUEST)))
                 .andExpect(jsonPath("$.message", is("Provided arguments are invalid, see data for details.")))
-                .andExpect(jsonPath("$.data.password", is("password is required")))
-                .andExpect(jsonPath("$.data.username", is("username is required")))
-                .andExpect(jsonPath("$.data.roles", is("roles is required")))
+                .andExpect(jsonPath("$.data.password", is("password is required.")))
+                .andExpect(jsonPath("$.data.username", is("username is required.")))
+                .andExpect(jsonPath("$.data.roles", is("roles are required.")))
         ;
     }
 
